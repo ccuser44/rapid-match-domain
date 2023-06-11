@@ -17,6 +17,20 @@ For example the library is ideal for security to see if domains and/or IP addres
 
 ## Installing
 
+### Installing via LuaRocks
+
+Run `$ luarocks install rapid-match-domain`
+
+### Installing via Lit
+
+Work in progess...
+
+### Instaling via Wally
+
+Work in progess...
+
+### Installing standalone
+
 Work in progess...
 
 ## Usage
