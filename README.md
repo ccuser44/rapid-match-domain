@@ -42,5 +42,5 @@ Work in progess...
 - 🔍 Matching with and without subdomains
 - 🌐 IPv4 addresses supported
 - 🌍 Wildcards and subdomain support allow rudimentary IP range checking
-- ⚡ Super simple implementation, no bloat, 60 lines of Lua in total
+- ⚡ Super simple implementation, no bloat, 80 lines of Lua in total
 - ⏱️ Amount of domains in the list to be checked againts doesn't increase the complexity, will always be as fast as O(1) amount of domains in the checklist
