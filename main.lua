@@ -1,3 +1,11 @@
+--[[lit-meta
+	  name = "ccuser44/rapid-match-domain"
+	  version = "1.0.0"
+	  homepage = "https://github.com/ccuser44/rapid-match-domain"
+	  description = "A fast Lua library to check if a domain name in a list of domain names with wildcard, subdomain and IP address support."
+	  license = "MIT"
+]]
+
 local function getHostnames(hostnames)
 	local hostnames = {}
 
