@@ -5,7 +5,7 @@ name = "ccuser44/rapid-match-domain"
 
 # Descriptions are free-form. These will be used as part of package listings
 # and search results.
-description = "RapidMatchDomain is a fast Lua library to check if a domain name in a list of domain names with wildcard, subdomain and IP address support."
+description = "A fast Lua library to check if a domain name in a list of domain names with wildcard, subdomain and IP address support."
 
 # Versions follow Semantic Versioning.
 # https://semver.org/
