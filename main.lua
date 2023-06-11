@@ -1,5 +1,3 @@
-local tbl = {}
-
 local function extractHostnames(hostnames)
 	local hostnames = {}
 
