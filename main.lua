@@ -1,4 +1,4 @@
-local function extractHostnames(hostnames)
+local function getHostnames(hostnames)
 	local hostnames = {}
 
 	for hostname in string.gsub(hostnames, "[ \r\t\v\f]*([%l%d%-%.%*]+)[ \r\t\v\f]*\n") do
@@ -13,7 +13,7 @@ local function extractHostnames(hostnames)
 	return hostnames
 end
 
-local function getDomainsFromHost(hostname)
+local function getDomains(hostname)
 	local domains = {}
 
 	for domain in string.gmatch(hostname, "([%l%d%-%*])+%.") do
@@ -29,7 +29,7 @@ local function getDomainsFromHost(hostname)
 end
 
 local function addUrls(tbl, domains, useSubdomains)
-	for _, hostname in ipairs(type(domains) == "string" and extractHostnames(domains) or domains) do
+	for _, hostname in ipairs(type(domains) == "string" and getHostnames(domains) or domains) do
 		for i = #hostname, 1, -1 do
 			local domain = hostname[i]
 
@@ -54,8 +54,8 @@ local function addUrls(tbl, domains, useSubdomains)
 	end
 end
 
-local function doesMatch(tbl, hostname)
-	local domains = getDomainsFromHost(hostname)
+local function match(tbl, hostname)
+	local domains = getDomains(hostname)
 
 	for i = #hostname, 1, -1 do
 		tbl = tbl[domains[i]] or tbl["*"]
@@ -73,8 +73,8 @@ local function doesMatch(tbl, hostname)
 end
 
 return {
-	extractHostnames = extractHostnames,
-	getDomainsFromHost = getDomainsFromHost,
+	getHostnames = getHostnames,
+	getDomains = getDomains,
 	addUrls = addUrls,
-	doesMatch = doesMatch
+	match = match
 }
