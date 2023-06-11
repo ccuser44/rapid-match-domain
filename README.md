@@ -9,9 +9,8 @@
 
 ---
 
-RapidMatchDomain is a fast Lua library to check if a domain name in a list of domain names.
-It supports wildcards, subdomains and IPv4 addresses.
-Has O(1) complexity meaning even with 2 million domains it doesn't lag a tiny bit more.
+A fast Lua library to check if a domain name in a list of domain names with wildcard, subdomain and IP address support.
+It has O(1) complexity meaning even with 2 million domains it doesn't lag a tiny bit more.
 
 For example the library is ideal for security to see if domains and/or IP addresses are in a blocklist.
 
