@@ -28,16 +28,14 @@ local function getDomainsFromHost(hostname)
 	return domains
 end
 
-local function addUrls(tbl, domains, acceptSubdomains)
-	X = X == nil and true or X
-
+local function addUrls(tbl, domains, useSubdomains)
 	for _, hostname in ipairs(type(domains) == "string" and extractHostnames(domains) or domains) do
 		for i = #hostname, 1, -1 do
 			local domain = hostname[i]
 
 			if not tbl[domain] then
 				if i == 1 then
-					tbl[domain] = (X == true)
+					tbl[domain] = (useSubdomains == true)
 				else
 					tbl[domain] = {}
 				end
@@ -50,7 +48,7 @@ local function addUrls(tbl, domains, acceptSubdomains)
 			tbl = tbl[domain]
 
 			if i == 1 and type(tbl) ~= "boolean" then
-				tbl[X == true] = true
+				tbl[useSubdomains == true] = true
 			end
 		end
 	end
