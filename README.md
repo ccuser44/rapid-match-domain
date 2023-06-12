@@ -34,7 +34,60 @@ Work in progess...
 
 ## Usage
 
-Work in progess...
+### Requiring the library
+
+To require the module use the following Lua code at the top of your script:
+
+```lua
+local RapidMatchDomain = require("rapid-match-domain")
+```
+
+---
+
+### Initialization of the Domain List
+
+The following Lua code initiates an empty table `t` to store a list of domain names:
+
+```lua
+local t = {}
+```
+
+---
+
+### Adding domains to the List
+
+The next piece of code adds the specified domain names to the existing list. This operation can be performed multiple times with different domain lists:
+
+```lua
+RapidMatchDomain.addUrls(t, domains, true)
+```
+
+**Parameters:**
+- `t` (table): The table storing the list of domain names.
+- `domains` (table | string): A table or a newline seperated string containing the domain names to be added to the list.
+- `useSubdomains` (boolean?) : A boolean telling if domains being matched againts the list would still match if they have extra subdomains. Default value is true.
+
+---
+
+### Matching a Domain against the List
+
+The final piece of code shows how to check if a given domain matches any of the domain names in the list:
+
+```lua
+if RapidMatchDomain.match(t, "www.example.com") then
+-- The domain matches
+end
+```
+
+**Parameters:**
+- `t` (table): The table storing the list of domain names.
+- `"www.example.com"` (string): The domain name to match against the list.
+
+**Returns:**
+- `true` if the domain matches any entry in the list.
+- `false` if the domain does not match any entry in the list.
+
+---
 
 ## Features
 
