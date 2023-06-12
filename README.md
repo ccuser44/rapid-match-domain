@@ -42,9 +42,11 @@ To require the module use the following Lua code at the top of your script:
 local RapidMatchDomain = require("rapid-match-domain")
 ```
 
+If you want you can use anything else than `RapidMatchDomain` as the variable name for the library.
+
 ---
 
-### Initialization of the Domain List
+### Initialization of the domain List
 
 The following Lua code initiates an empty table `t` to store a list of domain names:
 
@@ -69,9 +71,9 @@ RapidMatchDomain.addUrls(t, domains, true)
 
 ---
 
-### Matching a Domain against the List
+### Matching a domain against the List
 
-The final piece of code shows how to check if a given domain matches any of the domain names in the list:
+The final piece of code shows how to check if a domain matches any of the domain names in the list:
 
 ```lua
 if RapidMatchDomain.match(t, "www.example.com") then
