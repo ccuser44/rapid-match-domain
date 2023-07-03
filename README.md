@@ -9,7 +9,7 @@
 
 ---
 
-A fast Lua library to check if a domain name in a list of domain names with wildcard, subdomain and IP address support.
+A fast Lua library to check if a domain name in a list of domain names. Wildcards, subdomains and IP addresses supported.
 It has O(1) complexity meaning even with 2 million domains it doesn't lag a tiny bit more.
 
 For example the library is ideal for security to see if domains and/or IP addresses are in a blocklist.
