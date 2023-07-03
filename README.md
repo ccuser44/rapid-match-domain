@@ -39,10 +39,10 @@ Work in progess...
 To require the module use the following Lua code at the top of your script:
 
 ```lua
-local RapidMatchDomain = require("rapid-match-domain")
+local rapidMatch = require("rapid-match-domain")
 ```
 
-If you want you can use anything else than `RapidMatchDomain` as the variable name for the library.
+If you want you can use anything else than `rapidMatch` as the variable name for the library.
 
 ---
 
@@ -61,7 +61,7 @@ local t = {}
 The next piece of code adds the specified domain names to the existing list. This operation can be performed multiple times with different domain lists:
 
 ```lua
-RapidMatchDomain.addUrls(t, domains, true)
+rapidMatch.addUrls(t, domains, true)
 ```
 
 **Parameters:**
@@ -76,7 +76,7 @@ RapidMatchDomain.addUrls(t, domains, true)
 The final piece of code shows how to check if a domain matches any of the domain names in the list:
 
 ```lua
-if RapidMatchDomain.match(t, "www.example.com") then
+if rapidMatch.match(t, "www.example.com") then
 -- The domain matches
 end
 ```
