@@ -1,8 +1,8 @@
 --[[lit-meta
 	  name = "ccuser44/rapid-match-domain"
-	  version = "1.0.0"
+	  version = "1.0.1"
 	  homepage = "https://github.com/ccuser44/rapid-match-domain"
-	  description = "A fast Lua library to check if a domain name in a list of domain names with wildcard, subdomain and IP address support."
+	  description = "A fast Lua library to check if a domain name in a list of domain names. Wildcards, subdomains, portnumbers and IP address support."
 	  license = "MIT"
 ]]
 
