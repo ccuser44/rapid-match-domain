@@ -9,11 +9,11 @@
 local function getHostnames(hostnames)
 	local hostnames = {}
 
-	for hostname in string.gsub(hostnames, "[ \r\t\v\f]*([%l%d%-%.%*]+)[ \r\t\v\f]*\n") do
+	for hostname in string.gsub(hostnames, "[ \r\t\v\f]*([%l%d%-%.:%*]+)[ \r\t\v\f]*\n") do
 		table.insert(hostnames, hostname)
 	end
 
-	local tailHost = string.match(hostnames, "\n[ \r\t\v\f]*([%l%d%-%.%*]+)[ \r\t\v\f]*")
+	local tailHost = string.match(hostnames, "\n[ \r\t\v\f]*([%l%d%-%.:%*]+)[ \r\t\v\f]*")
 	if tailHost then
 		table.insert(hostnames, tailHost)
 	end
@@ -24,11 +24,11 @@ end
 local function getDomains(hostname)
 	local domains = {}
 
-	for domain in string.gmatch(hostname, "([%l%d%-%*])+%.") do
+	for domain in string.gmatch(hostname, "([%l%d%-%*])+[%.:]") do
 		table.insert(domains, domain)
 	end
 
-	local tailDomain = string.match(hostname, "%.?([%l%d%-%*])+$")
+	local tailDomain = string.match(hostname, "[%.:]?([%l%d%-%*])+$")
 	if tailDomain then
 		table.insert(domains, domain)
 	end
