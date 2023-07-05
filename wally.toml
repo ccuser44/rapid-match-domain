@@ -9,7 +9,7 @@ description = "A fast Lua library to check if a domain name in a list of domain 
 
 # Versions follow Semantic Versioning.
 # https://semver.org/
-version = "1.0.0"
+version = "1.0.2"
 
 # Contains an SPDX License Expression.
 # Licenses are required for publishing code to public registries.
@@ -32,7 +32,7 @@ registry = "https://github.com/upliftgames/wally-index"
 # You can also specify files to include or exclude from the package
 # By default gitignore files are respected and Wally won't include hidden
 # files/directories or packages downloaded by Wally.
-include = ["main.lua", "LICENSE"]
+exclude = ["rapid-match-domain.rockspec", ".editorconfig", "README.md"]
 
 # Packages can be marked as private to prevent them from being published.
 private = false
