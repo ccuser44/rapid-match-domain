@@ -9,7 +9,7 @@ description = "A fast Lua library to check if a domain name in a list of domain 
 
 # Versions follow Semantic Versioning.
 # https://semver.org/
-version = "1.0.2"
+version = "1.0.3"
 
 # Contains an SPDX License Expression.
 # Licenses are required for publishing code to public registries.
