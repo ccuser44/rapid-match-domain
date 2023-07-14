@@ -9,13 +9,8 @@
 local function getHostnames(hostnames)
 	local hostnames = {}
 
-	for hostname in string.gsub(hostnames, "[ \r\t\v\f]*([%l%d%-%.:%*]+)[ \r\t\v\f]*\n") do
-		table.insert(hostnames, hostname)
-	end
-
-	local tailHost = string.match(hostnames, "\n[ \r\t\v\f]*([%l%d%-%.:%*]+)[ \r\t\v\f]*")
-	if tailHost then
-		table.insert(hostnames, tailHost)
+	for hostname in string.gsub(hostnames, "[ \r\t\v\f]*([%w%-%.:%*]+)[ \r\t\v\f]*\r?\n?") do
+		hostnames[#hostnames + 1] = hostname
 	end
 
 	return hostnames
@@ -24,13 +19,8 @@ end
 local function getDomains(hostname)
 	local domains = {}
 
-	for domain in string.gmatch(hostname, "([%l%d%-%*])+[%.:]") do
-		table.insert(domains, domain)
-	end
-
-	local tailDomain = string.match(hostname, "[%.:]?([%l%d%-%*])+$")
-	if tailDomain then
-		table.insert(domains, domain)
+	for domain in string.gmatch(string.lower(hostname), "([%w%-%*])+[%.:]?") do
+		hostnames[#domains + 1] = domain
 	end
 
 	return domains
@@ -38,6 +28,8 @@ end
 
 local function addUrls(tbl, domains, useSubdomains)
 	for _, hostname in ipairs(type(domains) == "string" and getHostnames(domains) or domains) do
+		hostname = getDomains(hostname)
+
 		for i = #hostname, 1, -1 do
 			local domain = hostname[i]
 
@@ -47,7 +39,7 @@ local function addUrls(tbl, domains, useSubdomains)
 				else
 					tbl[domain] = {}
 				end
-			elseif type(tbl[domain]) == "boolean" and (i ~= 1 or tbl[domain] ~= X) then
+			elseif type(tbl[domain]) == "boolean" and (i ~= 1 or tbl[domain] ~= useSubdomains) then
 				tbl[domain] = {
 					[tbl[domain]] = true
 				}
@@ -60,6 +52,8 @@ local function addUrls(tbl, domains, useSubdomains)
 			end
 		end
 	end
+
+	return tbl
 end
 
 local function match(tbl, hostname)
