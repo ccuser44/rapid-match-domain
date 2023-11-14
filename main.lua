@@ -1,6 +1,6 @@
 --[[lit-meta
 	  name = "ccuser44/rapid-match-domain"
-	  version = "1.0.3"
+	  version = "1.0.4"
 	  homepage = "https://github.com/ccuser44/rapid-match-domain"
 	  description = "A fast Lua library to check if a domain name in a list of domain names. Wildcards, subdomains, portnumbers and IP addresses supported."
 	  license = "MIT"
@@ -49,6 +49,8 @@ local function addUrls(tbl, domains, useSubdomains)
 
 			if i == 1 and type(tbl) ~= "boolean" then
 				tbl[useSubdomains == true] = true
+			elseif domain == "**" and type(tbl) == "table" then -- Recursive wildcards
+				tbl["**"] = tbl
 			end
 		end
 	end
@@ -60,7 +62,7 @@ local function match(tbl, hostname)
 	local domains = getDomains(hostname)
 
 	for i = #hostname, 1, -1 do
-		tbl = tbl[domains[i]] or tbl["*"]
+		tbl = tbl[domains[i]] or tbl["*"] or tbl["**"]
 
 		if tbl == nil then
 			return false
